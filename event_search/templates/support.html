@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Поддержка EvenIQ</title>
+    <link rel="icon" href="{% static 'event_search/images/icon.jpg' %}">
+    <link rel="stylesheet" href="{% static 'event_search/css/support.css' %}">
+  </head>
+  <body>
+    <div id="webcrumbs">
+      <div class="w-full max-w-6xl mx-auto px-4 py-16">
+        <div class="bg-gradient-to-r from-violet-100 to-purple-100 rounded-3xl p-8 mb-8 relative">
+          <div class="absolute top-4 right-4">
+            <a href="/" class="inline-flex items-center gap-2 px-6 py-2.5 bg-white/90 hover:bg-white rounded-full text-sm font-medium transition-all duration-300 hover:shadow-md">
+              <span class="material-symbols-outlined text-gray-600">home</span>
+              На главную
+            </a>
+          </div>
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">
+            Служба поддержки EventIQ
+          </h1>
+          <p class="text-lg md:text-xl text-gray-600">
+            Отправьте нам сообщение, и мы поможем решить вопросы, связанные с организацией ваших мероприятий.
+          </p>
+        </div>
+
+        <form class="max-w-3xl mx-auto bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300" action="/contact/" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-6">
+            {{form.mail}}
+          </div>
+
+          <div class="mb-6">
+            {{form.name}}
+          </div>
+
+          <div class="mb-6">
+            {{form.text}}
+          </div>
+
+          <div class="mb-6">
+            <label class="flex items-center gap-4 p-4 rounded-lg border-2 border-dashed border-gray-200 hover:border-violet-300 cursor-pointer transition-all duration-200 hover:bg-violet-50">
+                <span class="material-symbols-outlined text-gray-400">attachment</span>
+                <span class="text-gray-500">Прикрепляемые файлы должны быть в одном из следующих форматов: PNG, JPG, JPEG.</span>
+                {{form.image}}
+            </label>
+        </div>
+
+          <p class="text-gray-500 text-sm mb-8">
+            Среднее время ответа составляет до 24 часов, ответ поступит на указанную вами электронную почту.
+          </p>
+
+          <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white text-lg font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined">send</span> Отправить сообщение
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="{% static 'event_search/js/support.js' %}"></script>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+  </body>
+</html>

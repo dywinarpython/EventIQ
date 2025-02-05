@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventIQ</title>
+    <link rel="icon" href="{% static 'event_search/images/icon.jpg' %}">
+    <link rel="stylesheet" href="{% static 'event_search/css/base.css' %}">
+</head>
+<body>
+    <div id="webcrumbs">
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <a href="/" class="nav-link">
+                        <span class="logo-blue">Event</span>
+                        <span class="logo-red">IQ</span>
+                    </a>
+                </div>
+                    {% block  content_2%}
+                    {% endblock  %}
+                    {% if user.is_authenticated%}
+                    <h1 class="nav-link cta-button">{{ user.username|title }} / <form action="{% url 'users:logout' %}" method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" style="color: red; background: none; border: none; cursor: pointer;">
+                            Выйти
+                        </button>
+                    </form>                    
+                </h1>                    
+                    {% else%}
+                        <a href="{% url 'users:registration' %}" class="nav-link cta-button">Регистрация / Вход</a>
+                    {% endif %}
+            </header>
+            <main class="main-content">
+                {% block  content_1%}
+                {% endblock  %}
+            </main>
+
+            <footer class="footer">
+                <p>© 2025 Event IQ. Все права защищены.</p>
+            </footer>
+        </div>
+    </div>
+
+    {% block scripts %}
+    {% endblock %}
+    <script src="{% static 'event_search/js/load.js' %}"></script>
+</body>
+</html>

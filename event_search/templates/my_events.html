@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content_2 %}
+<link rel="stylesheet" href="{% static 'event_search/css/my_events.css' %}">
+{% if user.is_authenticated %}
+<h1 class="nav-link">Ваши мероприятия</h1>
+{% endif %}
+{% endblock %}
+
+{% block content_1 %}
+{% if user.is_authenticated %}
+    <div class="w-[800px] bg-gradient-to-r from-primary-500 via-primary-400 to-primary-500 shadow-lg rounded-lg p-6 text-center text-primary-50">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">            
+            {% for event in events %}
+            <div class="border-2 border-primary-50 rounded-md p-2 group hover:shadow-2xl transition-shadow duration-300">
+                <a href="{% url 'event:event_detail' slug_event=event.slug %}">
+                    <img
+                        src="{{ event.place.image_url }}"
+                        alt="Отсутствует изображение"
+                        class="w-full h-[300px] object-cover rounded-md group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <p class="mt-4 text-primary-50 font-title text-xl font-bold">
+                        {{ event.name|default:"Название мероприятия" }}, {{ event.place.name|default:"Название места" }}
+                    </p>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<div class="container_create">
+    <button
+        type="button"
+        class="nav-link cta-button_create"
+        onclick="window.location.href='{% url 'event:create_event' %}'"
+    >
+      Создать новое?
+    </button>
+</div>
+<div class="button-center" style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+    {% if page_obj.has_next and page_obj.has_previous %}
+        <button
+            type="button"
+            class="nav-link cta-button_create_red"
+              onclick="window.location.href='{% url 'event:events' %}?page={{ page_obj.previous_page_number }}'">
+    Назад
+</button>
+            Назад
+        </button>
+        <button
+            type="button"
+            class="nav-link cta-button_create_red"
+            onclick="window.location.href='{% url 'event:events' %}?page={{ page_obj.next_page_number }}'">
+            Далее
+        </button>
+    {% elif not page_obj.has_previous and page_obj.has_next %}
+        <button
+            type="button"
+            class="nav-link cta-button_create_red"
+            onclick="window.location.href='{% url 'event:events' %}?page={{ page_obj.next_page_number }}'">
+            Далее
+        </button>
+    {% elif not page_obj.has_next and page_obj.has_previous %}
+        <button
+            type="button"
+            class="nav-link cta-button_create_red"
+            onclick="window.location.href='{% url 'event:events' %}?page={{ page_obj.previous_page_number }}'">
+            Назад
+        </button>
+    {% endif %}
+</div>
+{%else%}
+<div style="text-align: center; color: black; padding: 15px; border-radius: 10px; max-width: 600px; margin: 20px auto;">
+    Вы не зарегистрированы и не можете сохранять свои мероприятия.  
+    Нажмите на кнопку в правом верхнем углу для регистрации.
+</div>
+
+<div style="text-align: center; margin-top: 15px;">
+    <a href="{% url 'event:home' %}" class="nav-link cta-button" style="display: inline-block; background-color: red; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none;">
+        Назад
+    </a>
+</div>
+{% endif %}
+
+{% endblock %}

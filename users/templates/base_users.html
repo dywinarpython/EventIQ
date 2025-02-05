@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventIQ</title>
+    <link rel="icon" href="{% static 'users/images/icon.jpg' %}">
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+</head>
+<body>
+    <div id="webcrumbs">
+        <div class="w-[480px] bg-white rounded-3xl shadow-lg p-8">
+            <div class="flex items-center gap-1 mb-8">
+                <a href='/'>
+                    <span class="text-blue-600 text-2xl font-bold">Event</span>
+                    <span class="text-red-600 text-2xl font-bold">IQ</span>
+                </a>
+            </div>
+            {% block content1 %}
+            {% endblock %}
+            <div class="space-y-4">
+                <div class="relative">
+                    {% block content2 %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div id="loading-overlay">
+            <div class="loader"></div>
+        </div>
+        <script src="{% static 'users/js/load.js' %}"></script>
+    </div>
+</body>
+</html>

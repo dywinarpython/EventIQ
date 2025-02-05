@@ -1,0 +1,81 @@
+{% extends "base.html" %}  
+{% load static %}  
+
+
+
+{% block content_1 %}  
+<link rel="stylesheet" href="{% static 'event_search/css/faq.css' %}">  
+<div class="w-[600px] bg-white shadow rounded-lg p-6">  
+    <h1 class="font-title text-2xl text-primary-950 mb-4">FAQ</h1>  
+    <div class="space-y-4">  
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Как работает система?
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Мы анализируем подходящее место для мероприятия и, основываясь на его характеристиках, ИИ предлагает план мероприятия. 
+            Система рассчитывает приблизительную сумму затрат, учитывая особенности локации, количество участников и другие параметры. 
+            Однако, стоит учитывать, что расчеты могут быть не всегда точными, поскольку ИИ использует алгоритмы, которые могут допускать погрешности. 
+        </p>  
+      </details>  
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Как я могу создать мероприятие? 
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Для создания мероприятия достаточно выбрать событие и указать нужные параметры.
+             ИИ подберет для вас оптимальное место и составит план мероприятия с расчетом стоимости. 
+        </p>  
+      </details>  
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Что входит в расчёт стоимости? 
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Система учитывает аренду помещения, количество участников, расходы на техническое обеспечение, питание, транспорт и другие возможные расходы. 
+            Вы получите ориентировочный расчет, но стоит помнить, что конечная стоимость может отличаться.  
+        </p>  
+      </details> 
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Могу ли я изменять созданное мероприятие? 
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Нет, после создания мероприятия вы не сможете изменить его параметры. 
+            ИИ создаёт план на основе введённых данных, и любые изменения в процессе работы с мероприятием не поддерживаются.
+        </p>  
+      </details>
+
+
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Насколько точны расчеты по стоимости?
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Расчеты, предоставляемые ИИ, ориентированы на точность, но они могут быть не всегда абсолютно точными, поскольку система зависит от доступных данных и алгоритмов, которые могут допускать небольшие погрешности.
+        </p>  
+      </details>
+
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Есть ли возможность получения консультации по организации мероприятия?
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Нет, наша платформа не предоставляет консультаций от экспертов. 
+            Все рекомендации и планирование основаны исключительно на алгоритмах ИИ, которые автоматически анализируют ваши данные и предлагают оптимальные решения.
+        </p>  
+      </details>
+
+
+      <details class="rounded-md border border-neutral-300">  
+        <summary class="cursor-pointer px-4 py-2 bg-primary-500 text-primary-50 rounded-md">  
+            Не нашел подходящий вопрос?
+        </summary>  
+        <p class="px-4 py-3 text-neutral-950">  
+            Если у вас возникли проблемы или вопросы, обратитесь в нашу службу поддержки. 
+            Мы постараемся помочь вам решить любые вопросы, связанные с использованием платформы и созданием мероприятия.
+        </p>  
+      </details>
+    </div>  
+</div>  
+{% endblock %}  

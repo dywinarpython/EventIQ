@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+
+{% block content_1 %}
+<link rel="stylesheet" href="{% static 'event_search/css/event_person.css' %}">
+  <div class="w-[600px] bg-white rounded-xl shadow-lg overflow-hidden">
+<div class="flex gap-4 p-6">
+  <div class="w-[200px] relative group">
+    <a href="{{event.place.website}}">
+      <img src="{{event.place.image_url}}" alt="Отсутствует изображение" class="w-full h-[200px] object-cover rounded-lg shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.25)] hover:scale-105 transition-all duration-300 ease-in-out" />
+    </a>
+      <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 shadow-[0_4px_12px_rgb(0,0,0,0.1)] hover:shadow-[0_4px_12px_rgb(0,0,0,0.2)] transition-all duration-300">
+          <span class="material-symbols-outlined text-yellow-500">star</span>
+          <span class="font-semibold">4.8</span>
+      </div>
+  </div>
+  <div class="flex-1">
+      <h1 class="text-2xl font-bold mb-2">{{event.name}}, {{event.place.city}}</h1>
+      <h2 class="text-lg text-neutral-600 mb-4">{{event.place.name}}</h2>
+      <div class="space-y-2 text-gray-800">
+          <div class="space-y-1">
+            {{event.plan|linebreaks}}
+          </div>
+      </div>
+      <div class="mt-6 flex items-center gap-4">
+        <a href="{{event.place.website}}"
+           class"flex items-center gap-2 text-blue-500 hover:text-blue-600 hover:underline transition-colors duration-300">
+              <span class="material-symbols-outlined">location_on</span>
+                    Посмотреть на карте
+                </a>
+          {% if user.is_authenticated%}
+          <form method='POST'>
+            {%csrf_token%}
+          <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors">
+              <span class="material-symbols-outlined">delete</span>
+              Удалить
+          </button>
+        </form>
+        {% endif %}
+      </div>
+  </div>
+</div>
+</div> 
+{% endblock %}

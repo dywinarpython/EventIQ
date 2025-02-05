@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content_2 %}
+<a href="events/" class="nav-link">Мои мероприятия</a>
+{% endblock %}
+
+{% block content_1 %}
+<link rel="stylesheet" href="{% static 'event_search/css/create_event.css' %}">  
+<div class="w-[600px] bg-white shadow-md rounded-lg p-6 flex flex-col gap-6"
+     style="background: linear-gradient(135deg, rgba(106, 90, 249, 0.1), rgba(255, 255, 255, 0.5));">
+    <form method="POST"> 
+        {% csrf_token %} 
+        
+        <div>
+            <label class="block text-neutral-950 text-sm font-title">
+                <h1 class="nav-link" style="font-size: 1.2rem;">Название мероприятия</h1>
+            </label>
+            {{ form.name }} 
+        </div>
+
+        <div>
+            <label class="block text-neutral-950 text-sm font-title">
+                <h1 class="nav-link" style="font-size: 1.2rem;">Место проведения</h1>
+            </label>
+            {{ form.place }}
+        </div>
+
+        <div>
+            <label class="block text-neutral-950 text-sm font-title">
+                <h1 class="nav-link" style="font-size: 1.2rem;">Пожелания</h1>
+            </label>
+            {{ form.wish }} 
+        </div>
+        <div>
+            <label class="block text-neutral-950 text-sm font-title">
+                {{ form.agree }}
+                <span class="text-sm text-neutral-950 ml-2">Я понимаю, что данный текст может быть сгенерирован ИИ и не всегда соответствовать действительности.</span>
+            </label>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-lg bg-primary-500 text-primary-50 text-lg font-semibold font-title hover:bg-primary-600 transition-all custom-margin-top">
+            Создать мероприятие
+        </button>
+    </form> 
+</div>
+<div id="loading-overlay">
+    <div class="loader"></div>
+</div>
+{% endblock %}
+
+

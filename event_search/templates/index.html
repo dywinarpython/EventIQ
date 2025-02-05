@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block content_2%}
+<a href="events/" class="nav-link">Мои мероприятия</a>
+<a href="contact/" class="nav-link">Поддержка</a>
+<a href="FAQ/" class="nav-link">FAQ</a>
+{%endblock%}
+
+{% block content_1 %}
+<link rel="stylesheet" href="{% static 'event_search/css/index.css' %}">
+  <div id="webcrumbs"> 
+    <div class="w-[1200px] bg-white rounded-lg shadow-lg px-10 py-8">
+      
+      <div class="rounded-lg p-8 mb-10 bg-primary-500">
+        <h2 class="text-4xl font-title text-primary-50 mb-4">
+          <p>
+            <span class="gradient-text">EventIQ</span> — организация мероприятий
+            <span class="typed-text"></span>
+          </p>
+        </h2>
+        <p class="text-lg text-primary-50">
+          Наша миссия — предоставить каждому человеку простоту создания мероприятий с помощью ИИ, обеспечивая автоматизацию процессов планирования, управления ресурсами, координации участников и анализа данных. 
+         
+        </p>
+      </div>
+
+      <p class="text-lg text-neutral-600 mb-12 leading-relaxed">
+        Мы стремимся сделать организацию мероприятий доступной для всех. Наш сервис
+        прост в использовании и полностью бесплатен. Здесь вы найдете все, что
+        нужно для создания уникального и запоминающегося события.
+      </p>
+
+      <div class="text-center">
+        <a href='create_event/'>
+        <button
+          type="button"
+          class="bg-primary-500 text-primary-50 text-lg font-semibold py-3 px-10 rounded-md hover:bg-primary-600"
+        >
+          Создать собственное мероприятие
+        </button>
+      </a>
+      </div>
+    </div> 
+  </div>
+
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'event_search/js/base.js' %}"></script>
+{% endblock %}

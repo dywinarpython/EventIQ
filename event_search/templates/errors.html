@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block content_2%}
+<a href="{% url 'event:my_events' %}" class="nav-link">Мои мероприятия</a>
+<a href="{% url 'event:contact' %}"  class="nav-link">Поддержка</a>
+<a href="{% url 'event:FAQ' %}"  class="nav-link">FAQ</a>
+{%endblock%}
+
+{% block content_1 %}
+<link rel="stylesheet" href="{% static 'event_search/css/page404.css' %}">
+  <div class="w-[1200px] bg-white rounded-lg shadow-lg px-10 py-8">
+    <h2 class="text-3xl font-title text-neutral-950 mb-8">
+      {{text}}
+    </h2>
+    <p class="text-lg text-neutral-600 mb-12">
+      {{result}}
+    </p>
+    <div class="text-center">
+      <button
+        type="button"
+        class="bg-primary-500 text-primary-50 text-lg font-semibold py-3 px-10 rounded-md hover:bg-primary-600"
+        onclick="window.location.href='/'"
+      >
+        Вернуться на главную
+      </button>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base_users.html" %}
+{% load static %}
+{% load custom_filters %}
+
+{% block content1 %}
+<h2 class="text-xl font-semibold mb-2">Подтверждение почты</h2>
+<div class="relative mb-4">
+  На указанную вами почту, выслан 6-значный код введите его, чтобы подтвердить свою почту.
+</div>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<link rel="stylesheet" href="{% static 'users/css/verif.css' %}">
+{% endblock %}
+
+{% block content2 %}
+<form method="post">
+  {% csrf_token %}
+  <div class="flex justify-center gap-2 mb-8">
+    {{form.number}}
+  </div>
+  <button class="w-full bg-primary-500 hover:bg-primary-600 text-white font-semibold py-3 rounded-lg transition-colors" type='submit'>
+    Подтвердить
+  </button>
+</form>
+{% endblock %}

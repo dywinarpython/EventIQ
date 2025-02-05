@@ -1,0 +1,45 @@
+{% extends "base_users.html" %}
+{% load static %}
+{% load custom_filters %} 
+{% block content1 %}
+<h1 class="text-2xl font-bold text-center mb-8">Регистрация</h1>
+{% endblock %}
+
+{% block content2 %}
+<form method="post">
+  {% csrf_token %}
+<div class="relative mb-4">
+  <span class="material-symbols-outlined absolute left-4 top-3 text-gray-400">person</span>
+  {{form.username}}
+</div>
+<div class="relative mb-4">
+  <span class="material-symbols-outlined absolute left-4 top-3 text-gray-400">email</span>
+  {{form.email}}
+</div>
+<div class="relative mb-4">
+  <span class="material-symbols-outlined absolute left-4 top-3 text-gray-400">lock</span>
+  {{form.password1}}
+</div>
+<div class="relative mb-4">
+  <span class="material-symbols-outlined absolute left-4 top-3 text-gray-400">lock_reset</span>
+  {{form.password2}}
+</div>
+<div class="relative mb-4">
+  {{ form.errors|return_one_error}}
+  </div>
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+          <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+{% endif %}
+<button class="w-full bg-purple-600 hover:bg-purple-700 text-white rounded-lg py-3 font-medium transition-colors" type='submit'>
+  Зарегистрироваться
+</button>
+</form>
+<div class="text-center text-gray-600 mt-4">
+  Уже зарегистрированы?
+  <a href="/login/" class="text-purple-600 hover:text-purple-700 ml-1 transition-colors">Войти</a>
+</div>
+{% endblock %}

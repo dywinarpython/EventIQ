@@ -34,9 +34,9 @@
 ## 📸 Скриншоты
 
 ### Главная страница
-![Главная страница](![image](https://github.com/user-attachments/assets/491671f7-a3ba-4918-921d-8df610b605ee)
+(![image](https://github.com/user-attachments/assets/491671f7-a3ba-4918-921d-8df610b605ee)
 
 ### Форма создания мероприятия
-![Форма создания мероприятия](![image](https://github.com/user-attachments/assets/56ba4b18-3f79-45b9-b0e8-1bef57a063fd)
-)
+(![image](https://github.com/user-attachments/assets/56ba4b18-3f79-45b9-b0e8-1bef57a063fd))
+
 

@@ -1,3 +1,10 @@
+
+
+
+https://github.com/user-attachments/assets/cafe1d2b-edae-4792-a580-9fc4895e313d
+
+
+
 # EventIQ
 
 ## 🚀 О проекте
